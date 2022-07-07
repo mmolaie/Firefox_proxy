@@ -1,13 +1,13 @@
 #!/bin/bash
 
-PROXY_IP=$1
-PROXY_PORT=$2
+IP=$1
+PORT=$2
 
 sed -En -i'.backup' '/user_pref\("network\.proxy\.(http|http_port|type)"/!p
 $ a\
-user_pref("network.proxy.http", '\"$PROXY_IP'\");\
-user_pref("network.proxy.http_port", '$PROXY_PORT');\
-user_pref("network.proxy.ssl", '\"$PROXY_IP'\");\
-user_pref("network.proxy.ssl_port", '$PROXY_PORT');\
+user_pref("network.proxy.http", '\"$IP'\");\
+user_pref("network.proxy.http_port", '$PORT');\
+user_pref("network.proxy.ssl", '\"$IP'\");\
+user_pref("network.proxy.ssl_port", '$PORT');\
 user_pref("network.proxy.type", 1);
 ' /home/foad/.mozilla/firefox/*.default-release/prefs.js
